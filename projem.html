@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>ArıkanTarih</title> <!-- font awesome cdn link  ---------> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- custom css file link  ----------> 
+  <link rel="stylesheet" href="css/style.css"> 
+ <style type="text/css" id="dcoder_stylesheet">@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+:root{
+  --green:#000000;
+  --black:#2c2c54;
+}
+
+*{
+    font-family: 'nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+  }
+  
+  *::selection{
+    background:var(--green);
+    color:#fff;
+  }
+
+  html{
+    font-size: 62%;
+    overflow-x: hidden;
+    scroll-padding-top: 6.5rem;
+    scroll-behavior: smooth;
+  }
+  
+  section{
+    padding: 2rem 9%;
+  }
+
+  .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--green);
+    color: #fff;
+    padding: .8rem 3 rem;
+    font-size: 2.3rem;
+    text-align: center;
+    cursor: pointer;
+  }
+.btn:hover{
+  background: var(--black);
+}
+
+.heading{
+  text-align: center;
+  color:var(--black);
+  text-transform: uppercase;
+  padding:1rem;
+  font-size: 3.5rem;
+  padding-bottom: 2rem;
+}
+
+.heading span{
+  color:var(--green);
+  text-transform: uppercase;
+}
+
+
+
+.header-1{
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+}
+
+.logo{
+  color: var(--black);
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+.logo i{
+  padding-right: .5rem;
+  color: var(--green);
+}
+
+.header-1 .search-box-container{
+  display: flex;
+  height: 5rem;
+}
+
+.header-1 .search-box-container #search-box{
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  color: #333;
+  border: .1rem solid rgba(0, 0, 0, .3);
+  text-transform: none;
+}
+
+.header-1 .search-box-container label{
+  height: 100%;
+  width: 8rem;
+  font-size: 2.5rem;
+  line-height: 5rem;
+  color: #fff;
+  background: var(--green);
+  text-align: center;
+  cursor: pointer;
+}
+
+.header-1 .search-box-container label:hover{
+  background: var(--black);
+}
+
+.header-2{
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  position: relative;
+}
+
+.header-2.active{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
+
+.header-2 .navbar a{
+  padding: .5rem 1.5rem;
+  font-size: 2rem;
+  border-radius: .5rem;
+  color: var(--black);
+}
+
+.header-2 .navbar a:hover{
+  background: var(--green);
+  color: #fff;
+}
+
+.header-2 .icons a{
+  font-size: 2.5rem;
+  color: var(--black);
+  padding-left: 1rem;
+}
+
+.header-2 .icons a:hover{
+  color: var(--green);
+}
+
+#menu-bar{
+  font-size: 3rem;
+  border-radius: .5rem;
+  border: .1rem solid var(--black);
+  padding: .8rem 1.5rem;
+  color: var(--black);
+  cursor: pointer;
+  display: none;
+}
+
+.home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home .image{
+  flex: 1 1 40rem;
+  padding-top: 5rem;
+}
+
+.home .image img{
+  width: 100%;
+}
+
+.home .content{
+  flex: 1 1 40rem;
+}
+
+.home .content span{
+  font-size: 3rem;
+  color: #666;
+}
+
+.home .content h3{
+  font-size: 5rem;
+  color: var(--black);
+}
+
+.banner-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.banner-container .banner{
+  flex: 1 1 40rem;
+  height: 25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-container .banner img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner-container .banner .content{
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+}
+
+.banner-container .banner .content h3{
+  font-size: 3rem;
+  color: var(--black); 
+}
+
+.banner-container .banner .content p{
+  font-size: 2rem;
+  color: #333;
+}
+
+.banner-container .banner:hover img{
+  transform: scale(1.0) rotate(2deg);
+}
+
+.category .box-container{
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.category .box-container .box{
+  border: .1rem solid rgba(0, 0, 0, .3);
+  border-radius: .5rem;
+  text-align: center;
+  padding: 2rem;
+  flex: 1 1 25rem;
+}
+
+.category .box-container .box img{
+  width: 20rem;
+  margin: .5rem 0;
+}
+
+.category .box-container .box h3{
+  font-size: 3.5rem;
+  color: var(--black);
+}
+
+.category .box-container .box p{
+  font-size: 2rem;
+  color:#666;
+  padding:.5rem 0;
+}
+
+.category .box-container .box .btn{
+  display: block;
+}
+
+
+.product .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.product .box-container .box{
+  flex: 1 1 30rem;
+  text-align: center;
+  padding: 2rem;
+  border: .1rem solid rgba(0, 0, 0, .3);
+  border-radius: .5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.product .box-container .box img{
+  height: 20rem;
+}
+
+.product .box-container .box .discount{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 255, 0, .1);
+  color: var(--green);
+  padding: .7rem 1rem;
+  font-size: 2rem;
+}
+
+
+.product .box-container .box .icons{
+  position: absolute;
+  top: .5rem;
+  right: -6rem;
+}
+
+.product .box-container .box:hover .icons{
+  right: 1rem;
+}
+
+.product .box-container .box .icons a{
+  display: block;
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  font-size: 1.7rem;
+  color: var(--black);
+  background: rgba(0, 0, 0, .05);
+  border-radius: 50%;
+  margin-top: .7rem;
+}
+
+.product .box-container .box .icons a:hover{
+  background: var(--green);
+  color: #fff;
+}
+
+.product .box-container .box h3{
+  color: var(--black);
+  font-size: 2.5rem;
+}
+
+.product .box-container .box .stars i{
+  padding: 1rem .1rem;
+  font-size: 1.7rem;
+  color: gold;
+}
+
+
+.product .box-container .box .price{
+  font-size: 2rem;
+  color: #333;
+  padding: .5rem 0;
+}
+
+.product .box-container .box .price span{
+  font-size: 1.5rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.product .box-container .box .quantity{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+}
+
+.product .box-container .box .quantity span{
+  padding: 0 .7rem;
+  font-size: 1.7rem;
+}
+
+.product .box-container .box .quantity input{
+  border: .1rem solid rgba(0, 0, 0, .3);
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: var(--black);
+  padding: .5rem;
+  background: rgba(0, 0, 0, .05);
+}
+
+.product .box-container .box .btn{
+  display: block;
+}
+
+
+
+.deal{
+  background: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-green-fresh-vegetables-and-fruits-fresh-food-e-commerce-banner-image_174040.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+
+.deal .content{
+  max-width: 50rem;
+}
+
+.deal  .content .title{
+  font-size: 4rem;
+  color: var(--black);
+}
+
+.deal .content p{
+  font-size: 1.7rem;
+  padding: 1rem 0;
+  color: #333;
+}
+
+.deal .content .count-down{
+  display: flex;
+  gap: 1rem;
+  padding: .5rem 0;
+}
+
+.deal .content .count-down .box{
+  width: 9rem;
+  text-align: center;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0,.1);
+  border: .1rem solid rgba(0, 0, 0,.3);
+}
+
+.deal .content  .count-down .box h3{
+  color: var(--black);
+  background: #fff;
+  height: 7rem;
+  line-height: 7rem;
+  width: 100%;
+  font-size: 5rem;
+}
+
+.deal .content .count-down .box span{
+  display: block;
+  background: var(--black);
+  color: #fff;
+  width: 100%;
+  padding: .5rem;
+  font-size: 2rem;
+}
+
+
+
+.contact form{
+  text-align: center;
+  padding:2rem;
+  border:.1rem solid rgba(0,0,0,.3);
+}
+
+.contact form .inputBox{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact form .inputBox input, .contact form textarea{
+  padding:1rem;
+  font-size: 1.7rem;
+  background:#f7f7f7;
+  text-transform: none;
+  margin:1rem 0;
+  border:.1rem solid rgba(0,0,0,.3);
+  width: 49%;
+}
+
+.contact form textarea{
+  height: 20rem;
+  resize: none;
+  width: 100%;
+}
+
+
+.newsletter{
+  background: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-green-fresh-vegetables-and-fruits-fresh-food-taobao-banner-image_172426.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.newsletter h3{
+  font-size: 3rem;
+  color: var(--black);
+}
+
+.newsletter form{
+  max-width: 55rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, .1);
+}
+
+.newsletter form .box{
+  width: 100%;
+  padding: .7rem 1.5rem;
+  font-size: 1.7rem;
+  color: #333;
+  text-transform: none;
+}
+
+.newsletter form .btn{
+  margin-top: 0;
+}
+
+.footer .box-container{
+  display: flex;
+  gap:1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+  padding:1rem 0;
+  flex:1 1 25rem;
+}
+
+.footer .box-container .box .share a{
+  padding:0;
+  height:4rem;
+  width:4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+
+.footer .box-container .box h3{
+  font-size: 2.5rem;
+  color:var(--black);
+}
+
+.footer .box-container .box p{
+  font-size: 1.3rem;
+  color:#666;
+  padding:.7rem 0;
+}
+
+.footer .box-container .box .links{
+  padding:1rem 0;
+}
+
+.footer .box-container .box .links a{
+  display: block;
+  padding:.5rem 0;
+  font-size: 1.7rem;
+  color:#333;
+}
+
+.footer .box-container .box .links a:hover{
+  text-decoration: underline;
+  color:var(--green);
+}
+
+.footer .credit{
+  padding:2.5rem 1rem;
+  border-top: .1rem solid rgba(0,0,0,.1);
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.footer .credit span{
+  color:var(--green);
+}
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media(max-width:1200px){
+
+  html{
+    font-size: 55%;
+  }
+
+}
+
+@media(max-width:991px){
+
+  .header-1,
+  .header-2{
+    padding:2rem;
+  }
+
+  section{
+    padding:2rem;
+  }
+
+}
+
+@media(max-width:768px){
+
+  #menu-bar{
+    display: initial;
+  }
+
+  .header-2 .navbar{
+    position: absolute;
+    top:100%; left: 0; right:0;
+    background:var(--black);
+    padding:1rem 2rem;
+    display: none;
+  }
+
+  .header-2 .navbar.active{
+    display: initial;
+  }
+
+  .header-2 .navbar a{
+    font-size: 2.5rem;
+    display: block;
+    text-align: center;
+    background:#fff;
+    padding:1rem;
+    margin:1.5rem 0;
+  }
+
+  .home .content{
+    text-align: center;
+  }
+
+  .home .content h3{
+    font-size: 4rem;
+  }
+
+  .deal{
+    background-position: left;
+  }
+
+  .deal .content{
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .deal .content .count-down{
+    justify-content: center;
+  }
+
+  .contact form .inputBox input{
+    width:100%;
+  }
+
+  .newsletter h3{
+    font-size: 2.2rem;
+  }
+
+}
+
+@media(max-width:450px){
+
+  html{
+    font-size: 50%;
+  }
+
+  .heading{
+    font-size: 3rem;
+  }
+
+  .header-1{
+    flex-flow: column;
+  }
+
+  .header-1 .search-box-container{
+    width:100%;
+    margin-top: 2rem;
+  }
+
+  .logo{
+    font-size: 4rem;
+  }
+
+  .deal .content .count-down .box h3{
+    font-size: 4rem;
+  }
+
+  .deal .content .count-down .box span{
+    font-size: 1.5rem;
+  }
+
+}</style></head> 
+ <body> <!--header section starts-----------> <!--header section starts-----------> <!--header section starts-----------> 
+  <header> 
+   <div class="header-1"> <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Arıkan.com</a> 
+    <form action="" class="search-box-container"> 
+     <input type="search" id="search-box" placeholder="Uygun Fiyata Herşey Burda!"> <label for="search-box" class="fas fa-search"></label> 
+    </form> 
+   </div> 
+   <div class="header-2"> 
+    <div id="menu-bar" class="fas fa-bars"></div> 
+    <nav class="navbar"> <a href="#home">AnaMenü</a> <a href="#category">Su</a> <a href="#product">Ebat </a> <a href="#deal">Kitap</a> <a href="#contact">Soru B.</a> 
+    </nav> 
+    <div class="icons"> <a href="#" class="fas fa-shopping-cart"></a> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-user-circle"></a> 
+    </div> 
+   </div> 
+  </header> <!--header section ends-----------> <!--header section ends-----------> <!--header section ends-----------> <!--home sections starts---------> <!--home sections starts---------> <!--home sections starts---------> 
+  <section class="home" id="home"> 
+   <div class="image"> 
+    <img src="https://r.resimlink.com/qMLcG47UiD.jpg"> 
+   </div> 
+   <div class="content"> <span>Arıkan.com</span> 
+    <h3>Şipariş İçin</h3> <a href="#" class="btn">İste👇</a> 
+   </div> 
+  </section> <!--home sections ends------------> <!--home sections ends------------> <!--home sections ends------------> <!--banner sections starts---------> <!--banner sections starts---------> <!--banner sections starts---------> 
+  <section class="banner-container"> 
+   <div class="banner"> 
+    <img src="https://r.resimlink.com/bxOYg.jpeg" alt=""> 
+    <div class="content"> 
+     <h3>24'lü Su (500ml)</h3> 
+     <p>Marka; Dalga</p> <a href="#" class="btn">Aşağa İn▫️</a> 
+    </div> 
+   </div> 
+   <div class="banner"> 
+    <img src="https://r.resimlink.com/nx7l4.jpeg" alt=""> 
+    <div class="content"> 
+     <h3>8.Sınıf Türkçe Dinamo</h3> 
+     <p>Marka;Tonguç</p> <a href="#" class="btn">Aşağa İn▫️</a> 
+    </div> 
+   </div> 
+  </section> <!--banner sections ends------------> <!--banner sections ends------------> <!--banner sections ends------------> <!--category section starts--------> <!--category section starts--------> <!--category section starts--------> 
+  <section class="category" id="category"> 
+   <h1 class="heading">Anlık Ürünler✅<span></span></h1> 
+   <div class="box-container"> 
+    <div class="box"> 
+     <h3>Html Css Js Kodları</h3> 
+     <p>Dijital Saat Dosyası</p> 
+     <img src="https://r.resimlink.com/i4YNqDXv.jpeg" alt=""> <a href="#" class="btn">Aşağa İn▫️</a> 
+    </div> 
+    <div class="box"> 
+     <h3> Dalga Su 24'lü(500ml)</h3> 
+     <p>İndirim Var</p> 
+     <img src="https://r.resimlink.com/bxOYg.jpeg" alt=""> <a href="#" class="btn">Aşağa İn▫️</a> 
+    </div> 
+    <div class="box"> 
+     <h3>Dalga Su 12'li (1,5L)</h3> 
+     <p>İndirim Var</p> 
+     <img src="https://r.resimlink.com/rv1G7je.jpeg" alt=""> <a href="#" class="btn">Aşağa İn</a> 
+    </div> 
+    <div class="box"> 
+     <h3>Dalga Su(1Adet)</h3> 
+     <p> İndirim Var</p> 
+     <img src="https://r.resimlink.com/MleNBytgm.jpeg" alt=""> <a href="#" class="btn">Aşağa İn▫️</a> 
+    </div> 
+   </div> 
+  </section> <!--category section ends--------> <!--category section ends--------> <!--category section ends--------> <!--product section starts-------> <!--product section starts-------> <!--product section starts-------> 
+  <section class="product" id="product"> 
+   <h1 class="heading">Elimizde Olanlar<span>(İndirimli)</span></h1> 
+   <div class="box-container"> 
+    <div class="box"> <span class="discount">-₺32</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/bxOYg.jpeg" alt=""> 
+     <h3>24'lü Dalga Su</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       ₺40 <span>₺72 </span> 
+     </div> 
+     <div class="Alınacak"> <span>Alınacak : </span> 
+      <input type="number" min="1" max="10" value="1"> <span> /Paket </span> 
+     </div> <a href="#" class="btn">Şipariş Ver</a> 
+    </div> 
+    <div class="box"> <span class="discount">-45%</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/rv1G7je.jpeg" alt=""> 
+     <h3>12'li 1,5Lt Dalga Su</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       ₺65<span> ₺95</span> 
+     </div> 
+     <div class="quantity"> <span>alınacak </span> 
+      <input type="number" min="1" max="5" value="1"> <span> /paket </span> 
+     </div> <a href="#" class="btn">Şipariş Ver</a> 
+    </div> 
+    <div class="box"> <span class="discount">-275</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/i4YNqDXv.jpeg" alt=""> 
+     <h3>Html Css Js Sudoko Dosyası</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       ₺75<span> ₺320 </span> 
+     </div> 
+     <div class="quantity"> <span>alınacak: </span> 
+      <input type="number" min="1" max="1" value="1"> <span> adet </span> 
+     </div> <a href="#" class="btn">Şipariş Ver</a> 
+    </div> 
+    <div class="box"> <span class="discount">-₺3</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/MleNBytgm.jpeg" alt=""> 
+     <h3>Dalga Su 1 Adet</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       ₺2 <span> ₺5</span> 
+     </div> 
+     <div class="quantity"> <span>alınacak: </span> 
+      <input type="number" min="1" max="5" value="1"> <span> /adet </span> 
+     </div> <a href="#" class="btn">Şipariş Ver</a> 
+    </div> 
+    <div class="box"> <span class="discount">-₺30</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/i4YNqDXv.jpeg" alt=""> 
+     <h3>Html Css Js Dijital Saat Dosyası</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       ₺20 <span> ₺50 </span> 
+     </div> 
+     <div class="quantity"> <span>alınacak : </span> 
+      <input type="number" min="1" max="1" value="1"> <span> /dosya</span> 
+     </div> <a href="#" class="btn">Şipariş Ver</a> 
+    </div> 
+    <div class="box"> <span class="discount">-₺30</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/nx7l4.jpeg" alt=""> 
+     <h3>Dinamo 8.sınıf Türkçe (Tonguç Yayınları)</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       &amp;85<span> ₺115</span> 
+     </div> 
+     <div class="quantity"> <span>quantity : </span> 
+      <input type="number" min="1" max="3" value="1"> <span> /kg </span> 
+     </div> <a href="#" class="btn">Şipariş Ver</a> 
+    </div> 
+    <div class="box"> <span class="discount">-35₺</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/i4YNqDXv.jpeg" alt=""> 
+     <h3>24'lü Pozantı Su(500ml)</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       ₺35 <span> ₺70 </span> 
+     </div> 
+     <div class="quantity"> <span>alınacak: </span> 
+      <input type="number" min="1" max="5" value="1"> <span> /paket</span> 
+     </div> <a href="#" class="btn">Şipariş Ver</a> 
+    </div> 
+    <div class="box"> <span class="discount">-5₺</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/f65wOZx.jpeg" alt="">
+  
+     
+     <h3>8.Sınıf Matematik Zor ve Ötesi (Tonguç)</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       ₺40 <span> ₺45 </span> 
+     </div> 
+     <div class="quantity"> <span>quantity : </span> 
+      <input type="number" min="1" max="1000" value="1"> <span> /kg </span> 
+     </div> <a href="#" class="btn">Şipariş</a> 
+    </div> 
+    <div class="box"> <span class="discount">-5₺</span> 
+     <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-share"></a> <a href="#" class="fas fa-eye"></a> 
+     </div> 
+     <img src="https://r.resimlink.com/8aKQHRw-.jpeg" alt=""> 
+     <h3>Son Tekrar İngilizce</h3> 
+     <div class="stars"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i> 
+     </div> 
+     <div class="price">
+       40₺ <span> ₺45 </span> 
+     </div> 
+     <div class="quantity"> <span> kzksk: </span> 
+      <input type="number" min="1" max="5" value="1"> <span> /adet</span> 
+     </div> <a href="#" class="btn">Şipariş</a> 
+    </div> 
+   </div> 
+  </section> <!--product section ends-------> <!--product section ends-------> <!--product section ends-------> <!--deal section starts--------> <!--deal section starts--------> <!--deal section starts--------> <!--contact section ends--------> <!--contact section ends--------> <!--contact section ends--------> <!--newsletter section starts--------> <!--newsletter section starts--------> <!--newsletter section starts--------> <!--newsletter section ends--------> <!--newsletter section ends--------> <!--newsletter section ends--------> <!--fotter section starts--------> <!--fotter section starts--------> <!--fotter section starts--------> 
+  <section class="footer"> 
+   <div class="box-container"> 
+    <div class="box"> <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Fiyat Performans🌟</a> 
+     <p>Arıkan.com Bir E-Ticaret Sitesidir..</p> 
+     <div class="share"> <a href="#" class="btn fab "></a> <a href="#" class="btn fab fa-discord"></a> <a href="#" class="btn fab fa-touchapp"></a> <a href="#" class="btn fab fa-linkedin"></a> 
+     </div> 
+    </div> 
+    <div class="box"> 
+     <h3>Ait Bölge</h3> 
+     <div class="links"> <a href="#">Türkiye'ye Aittir</a> <a href="#">Sadece Tr'de Bulunmamaktadır</a> <a href="#"></a> <a href="#"></a> <a href="#"></a> 
+     </div> 
+    </div> 
+    <div class="box"> 
+     <h3>Linkler</h3> 
+     <div class="links"> <a href="#">Ana Sayfa</a> <a href="#">Katagoriler</a> <a href="#">Ebatlar</a> <a href="#">Deal</a> <a href="#">Hakkımda</a> 
+     </div> 
+    </div> 
+    <div class="box"> 
+     <h3>Nelelerde Varız?</h3> 
+     <div class="links"> <a href="#">Web Site</a> <a href="#"></a> <a href="#">app store</a> 
+     </div> 
+    </div> 
+   </div> 
+   <h1 class="credit">By Arıkan<span> Made İn </span>Turkiye</h1> 
+  </section> <!--fotter section ends--------> <!--fotter section ends--------> <!--fotter section ends--------> <!-- custom js file link  --> 
+  <script src="js/script"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">let menu = document.querySelector('#menu-bar');
+let navbar = document.querySelector('.navbar');
+let header = document.querySelector('.header-2');
+
+menu.addEventListener('click', () =>{
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+});
+
+window.onscroll = () =>{
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('active');
+
+    if(window.scrollY > 150){
+        header.classList.add('active');
+    }else{
+        header.classList.remove('active');
+    }
+
+}
+
+let countDate = new Date('june 1, 2021 00:00:00').getTime();
+
+function CountDown(){
+
+    let now = new Date().getTime();
+    gap = countDate - now;
+
+    let second = 1000;
+    let minute = second * 60;
+    let hour = minute * 60;
+    let day = hour * 24;
+
+    let d = Math.floor(gap / (day));
+    let h = Math.floor((gap % (day)) / (hour));
+    let m = Math.floor((gap % (hour)) / (minute));
+    let s = Math.floor((gap % (minute)) / (second));
+
+    document.getElementById('day').innerText = d;
+    document.getElementById('hour').innerText = h;
+    document.getElementById('minute').innerText = m;
+    document.getElementById('second').innerText = s;
+
+}
+
+setInterval(function(){
+    CountDown();
+},1000)</script></body></html>
